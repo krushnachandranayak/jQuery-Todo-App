@@ -1,0 +1,86 @@
+body{
+    background-image: url('../public/images/banner.jpg');
+    background-size: cover;    
+}
+header{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+h4,.bi-house{
+    color: white;
+    font-size: 30px;
+}
+.home-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+}
+.shadow-bg{
+    background-color: rgba(114, 114, 114, 0.5);
+    color: rgb(35, 33, 4);
+    padding: 20px;
+    border-radius: 10px;
+    margin: auto;
+    height: auto;
+}
+.appointment-cards {
+    height: 350px;
+}
+
+/* Mobile */
+@media (max-width: 575.98px) {
+    .shadow-bg, .w-25 {
+        width: 90% !important;
+    }
+
+    h4, .bi-house {
+        font-size: 20px;
+    }
+
+    .appointment-cards {
+        height: auto;
+    }
+
+    #btnAddAppointment {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    .modal-dialog {
+        max-width: 95%;
+        margin: 1rem auto;
+    }
+}
+
+/* Tablets */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .shadow-bg, .w-25 {
+        width: 80% !important;
+    }
+
+    h4, .bi-house {
+        font-size: 24px;
+    }
+
+    .modal-dialog {
+        max-width: 90%;
+    }
+}
+
+/* Large tablets & small laptops screen */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .shadow-bg, .w-25 {
+        width: 60% !important;
+    }
+
+    .modal-dialog {
+        max-width: 80%;
+    }
+}
+
+/* Large desktops */
+@media (min-width: 1200px) {
+    .shadow-bg, .w-25 {
+        width: 25% !important;
+    }
+}

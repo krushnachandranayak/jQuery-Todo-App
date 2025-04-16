@@ -1,0 +1,79 @@
+<div class="shadow-bg p-3 mt-2 w-25">
+    <div>
+        <div class="d-flex justify-content-between fs-4 fw-bold bg-dark-subtle p-2 rounded rounded-2">
+            <span id="active-user"></span>
+            <span>Dashboard</span>
+            <button type="button" class="btn" id="btn-signout" title="Sign out"><span class="bi bi-box-arrow-right fs-4 text-danger"></span></button>
+        </div>
+        <div>
+            <button type="button" id="btnAddAppointment" data-bs-target="#add-appointment" data-bs-toggle="modal"
+                class="bi btn btn-primary bi-calendar-event-fill mt-3"> Add Appointment</button>
+            <!-- Add Modal -->
+            <div class="modal fade" id="add-appointment">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3>Add New Appointment</h3>
+                        </div>
+                        <div class="modal-body">
+                            <dl>
+                                <dt><label for="appointment-id">Appointment ID:</label></dt>
+                                <dd><input type="text" id="appointment-id" title="Enter appointment ID" class="form-control" placeholder="Enter appointment ID"></dd>
+                                <dt><label for="appointment-title" class="form-label">Title</label></dt>
+                                <dd>
+                                    <input type="text" class="form-control" id="appointment-title" placeholder="Enter appointment title">
+                                </dd>
+                                <dt>Description</dt>
+                                <dd><textarea class="form-control" rows="4" cols="40" id="appointment-description" title="Enter appointment description" placeholder="Enter appointment description"></textarea></dd>
+                                <dt><label for="appointment-date" class="form-label">Date</label></dt>
+                                <dd>
+                                    <input type="date" class="form-control" id="appointment-date" title="Select appointment date" placeholder="YYYY-MM-DD">
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" data-bs-dismiss="modal" id="btn-add" class="btn btn-warning">Add</button>
+                            <button type="button" class="btn btn-danger mx-2" data-bs-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Edit Modal -->
+            <div class="modal fade" id="edit-appointment">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3>Edit Appointment</h3>
+                        </div>
+                        <div class="modal-body">
+                            <dl>
+                                <input type="hidden" id="edit-appointment-id">
+                                <dt><label for="edit-appointment-title" class="form-label">Title</label></dt>
+                                <dd>
+                                    <input type="text" class="form-control" id="edit-appointment-title"
+                                        title="Edit appointment title" placeholder="Enter appointment title">
+                                </dd>
+                                <dt>Description</dt>
+                                <dd><textarea class="form-control" rows="4" cols="40" id="edit-appointment-description"
+                                        title="Edit appointment description"
+                                        placeholder="Enter appointment description"></textarea></dd>
+                                <dt><label for="edit-appointment-date" class="form-label">Date</label></dt>
+                                <dd>
+                                    <input type="date" class="form-control" id="edit-appointment-date"
+                                        title="Edit appointment date" placeholder="YYYY-MM-DD">
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" data-bs-dismiss="modal" id="btn-save" class="btn btn-success">Save</button>
+                            <button type="button" class="btn btn-danger mx-2" data-bs-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mt-4 overflow-auto appointment-cards" id="appointment-cards">
+
+    </div>
+</div>
