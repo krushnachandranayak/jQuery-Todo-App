@@ -1,8 +1,10 @@
 const mongoClient = require('mongodb').MongoClient;
 const cors = require('cors');
 const express = require('express');
-
-const mongoStr = 'mongodb+srv://krushnachandranayak308:Sunil1234@cluster0.tdmoe8t.mongodb.net/';
+const dotenv = require('dotenv');
+dotenv.config();
+const mongoStr = process.env.MONGO_URI ;//|| 'mongodb://localhost:27017/todo';
+const PORT = process.env.PORT || 4040;
 
 const app = express();
 app.use(cors());
@@ -106,6 +108,5 @@ app.delete('/delete-appointment/:id', (req, res) => {
     });
 });
 
-app.listen(4040, () => {
-    console.log(`Server Started on http://127.0.0.1:4040`);
-});
+app.listen(PORT);
+console.log(`Server is running on port http://127.0.0.1:${PORT}`);
