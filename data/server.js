@@ -2,14 +2,14 @@ const mongoClient = require('mongodb').MongoClient;
 const cors = require('cors');
 const express = require('express');
 
-const mongoStr = 'mongodb://127.0.0.1:27017';
+const mongoStr = 'mongodb+srv://krushnachandranayak308:Sunil1234@cluster0.tdmoe8t.mongodb.net/';
 
 const app = express();
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.get('/users',(req,res)=>{
+app.get('/users', (req, res) => {
     mongoClient.connect(mongoStr).then(clientObj=>{
         var database = clientObj.db('todo');
         database.collection('users').find({}).toArray().then(documents=>{
@@ -19,7 +19,7 @@ app.get('/users',(req,res)=>{
     });
 });
 
-app.get('/appointments',(req,res)=>{
+app.get('/appointments', (req, res) => {
     mongoClient.connect(mongoStr).then(clientObj=>{
         var database = clientObj.db('todo');
         database.collection('appointments').find({}).toArray().then(documents=>{
@@ -29,7 +29,7 @@ app.get('/appointments',(req,res)=>{
     });
 });
 
-app.get('/appointments/:id',(req,res)=>{
+app.get('/appointments/:id',(req, res) => {
     var id = parseInt(req.params.id);
     mongoClient.connect(mongoStr).then(clientObj=>{
         var database = clientObj.db('todo');
@@ -38,9 +38,10 @@ app.get('/appointments/:id',(req,res)=>{
             res.end();
         });
     });
+
 });
 
-app.post('/register-user',(req,res)=>{
+app.post('/register-user', (req, res) => {
     var user ={
         username: req.body.username,
         password: req.body.password,
@@ -54,9 +55,10 @@ app.post('/register-user',(req,res)=>{
             res.end();
         });
     });
+
 });
 
-app.post('/add-appointment',(req,res)=>{
+app.post('/add-appointment', (req, res) => {
     var appointment ={
         appointment_id:parseInt(req.body.id),
         title:req.body.title,
@@ -74,7 +76,7 @@ app.post('/add-appointment',(req,res)=>{
     });
 });
 
-app.put('/edit-appointment/:id',(req,res)=>{
+app.put('/edit-appointment/:id', (req, res) => {
     var appointment = {
         appointment_id:parseInt(req.body.id),
         title:req.body.title,
@@ -93,7 +95,7 @@ app.put('/edit-appointment/:id',(req,res)=>{
 });
 
 
-app.delete('/delete-appointment/:id',(req,res)=>{
+app.delete('/delete-appointment/:id', (req, res) => {
     var id =parseInt(req.params.id);
     mongoClient.connect(mongoStr).then(clientObj=>{
         var database = clientObj.db('todo');
@@ -104,5 +106,6 @@ app.delete('/delete-appointment/:id',(req,res)=>{
     });
 });
 
-app.listen(4040);
-console.log(`Server Started on http://127.0.0.1:4040`);
+app.listen(4040, () => {
+    console.log(`Server Started on http://127.0.0.1:4040`);
+});
