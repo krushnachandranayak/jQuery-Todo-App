@@ -1,5 +1,5 @@
 body{
-    background-image: url('../public/images/banner.jpg');
+    background-image: url('../frontend/images/banner.jpg');
     background-size: cover;    
 }
 header{
