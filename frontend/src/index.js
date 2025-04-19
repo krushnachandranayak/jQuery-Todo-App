@@ -33,7 +33,7 @@ $(() => {
     $(document).on('keyup', '#txtUsername', () => {
         $.ajax({
             method: 'get',
-            url: 'http://localhost:4040/users',
+            url: 'https://jquery-todo-app.onrender.com/users',
             success: (users) => {
                 for (var user of users) {
                     if ($('#txtUsername').val().length == 0) {
@@ -90,7 +90,7 @@ $(() => {
         }
         $.ajax({
             method: 'post',
-            url: 'http://localhost:4040/register-user',
+            url: 'https://jquery-todo-app.onrender.com/register-user',
             data: user,
             success: () => {
                 console.log('User Registered Successfully!');
@@ -111,7 +111,7 @@ $(() => {
             $('#lblPwdMsg').html('');
             $.ajax({
                 method: 'get',
-                url: 'http://localhost:4040/users',
+                url: 'https://jquery-todo-app.onrender.com/users',
                 success: (users)=>{
                     var user = users.find(item=> item.username === $('#txtUsername').val());
                     if(user){
@@ -139,7 +139,7 @@ $(() => {
                 $('#active-user').html($.cookie('uname'));
                 $.ajax({
                     method: 'get',
-                    url: 'http://localhost:4040/appointments',
+                    url: 'https://jquery-todo-app.onrender.com/appointments',
                     success: (appointments)=>{
                         var results = appointments.filter(item=> item.username === $.cookie('uname'));
                         results.map(appointment =>{
@@ -180,7 +180,7 @@ $(() => {
 
         $.ajax({
             method:'post',
-            url:'http://localhost:4040/add-appointment',
+            url:'https://jquery-todo-app.onrender.com/add-appointment',
             data:appointment,
         });
         loadDashBoard();
@@ -193,7 +193,7 @@ $(() => {
         if(flag===true){
             $.ajax({
                 method:'delete',
-                url:`http://localhost:4040/delete-appointment/${e.target.value}`
+                url:`https://jquery-todo-app.onrender.com/delete-appointment/${e.target.value}`
             });
 
             loadDashBoard();
@@ -204,7 +204,7 @@ $(() => {
     $(document).on('click','#btn-edit', (e)=>{
         $.ajax({
             method:'get',
-            url:`http://localhost:4040/appointments/${e.target.value}`,
+            url:`https://jquery-todo-app.onrender.com/appointments/${e.target.value}`,
             success:(appointment)=>{
                 $("#edit-appointment-id").val(parseInt(appointment.appointment_id));
                 $("#edit-appointment-title").val(appointment.title);
@@ -226,7 +226,7 @@ $(() => {
 
         $.ajax({
             method:'put',
-            url:`http://localhost:4040/edit-appointment/${$("#edit-appointment-id").val()}`,
+            url:`https://jquery-todo-app.onrender.com/edit-appointment/${$("#edit-appointment-id").val()}`,
             data:appointment
         });
         loadDashBoard();
